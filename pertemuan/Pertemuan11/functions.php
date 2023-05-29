@@ -1,6 +1,6 @@
 <?php
 // Sesuaikan dengan URL project kalian
-define('BASE_URL', '/pw2023_223040168/kuliah/pertemuan11/');
+define('BASE_URL', '/pw2023_223040168/kuliah/pertemuan/pertemuan11/');
 
 function koneksi()
 {

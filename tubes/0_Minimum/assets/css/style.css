@@ -1,0 +1,36 @@
+body {
+  background-color: #f1ede8;
+  font-family: "Inter", sans-serif;
+}
+
+#header {
+  height: 100vh;
+  background-image: url(../img/image2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+#header .container {
+  height: 100%;
+}
+#header .container .row {
+  height: 100%;
+}
+#about {
+  height: 100vh;
+}
+#about .container {
+  height: 100%;
+}
+#about .container .row {
+  height: 100%;
+}
+#contact {
+  height: 100vh;
+}
+
+#contact .container {
+  height: 100%;
+}
+#contact .container .row {
+  height: 100%;
+}
