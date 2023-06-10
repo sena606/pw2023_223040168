@@ -17,9 +17,9 @@ $prdk = query("SELECT * FROM product WHERE id = $id ")[0];
 
 <body>
     <div class="text-center">
-        <img src="assets/img/<?= $prdk['photo']; ?>" alt="" width="40%">
-        <hr>
         <h1><?= $prdk['title']; ?></h1>
+        <hr>
+        <img src="assets/img/<?= $prdk['photo']; ?>" alt="" width="40%">
         <hr>
         <p> <?= $prdk['detail']; ?></p>
     </div>

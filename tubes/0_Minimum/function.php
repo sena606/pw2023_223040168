@@ -123,9 +123,43 @@ function cari($keyword)
 
 function register($data)
 {
-    global $conn;
+    global $fsr;
 
-    $username = strtolower(stripslashes($data["username"]));
-    $password = mysqli_real_escape_string($conn, $data["password"]);
-    $email = mysqli_real_escape_string($conn, $data["email"]);
+    $userName = strtolower(stripslashes($data["userName"]));
+    $password = $data["password"];
+    $email = $data["email"];
+    $role = "user";
+
+    // cek username sudah ada atau belum
+    $result = mysqli_query($fsr, "SELECT * FROM users WHERE username = '$userName'");
+
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>
+                alert('Username sudah terdaftar!');
+              </script>";
+        return false;
+    }
+
+    // enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // tambahkan user baru ke database
+    mysqli_query($fsr, "INSERT INTO users VALUES (NULL, '$userName', '$password', '$email','$role')");
+
+    return mysqli_affected_rows($fsr);
+}
+
+
+function gantiPassword($fsr, $username, $passwordBaru)
+{
+    $hashedPassword = password_hash($passwordBaru, PASSWORD_DEFAULT);
+
+    // Query untuk mengubah password
+    $query = "UPDATE users SET password = '$hashedPassword' WHERE username = '$username'";
+
+    if (mysqli_query($fsr, $query)) {
+        return true; // Password berhasil diubah
+    } else {
+        return false; // Terjadi kesalahan
+    }
 }

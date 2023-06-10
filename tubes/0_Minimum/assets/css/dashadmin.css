@@ -1,0 +1,43 @@
+* {
+  color: white;
+}
+
+body {
+  /* background-color: #f1ede8; */
+  font-family: "Inter", sans-serif;
+  height: 90vh;
+  background-image: url(../img/backadmin.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+table {
+  background-color: rgba(130, 129, 129, 0.5);
+}
+
+#header .container {
+  height: 100%;
+}
+#header .container .row {
+  height: 100%;
+}
+#about {
+  height: 100vh;
+}
+#about .container {
+  height: 100%;
+}
+#about .container .row {
+  height: 100%;
+}
+#contact {
+  height: 100vh;
+}
+
+#contact .container {
+  height: 100%;
+}
+#contact .container .row {
+  height: 100%;
+}

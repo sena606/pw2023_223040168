@@ -1,5 +1,16 @@
-<?php require '../function.php';
+<?php
+
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: ../LOGIN/menulogin.php");
+    exit;
+}
+
+require '../function.php';
+
 $product = query("SELECT * FROM product");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,11 +18,13 @@ $product = query("SELECT * FROM product");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin || Product</title>
+    <title>Admin || News</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/dashadmin.css">
 </head>
 
 <body>
@@ -33,6 +46,9 @@ $product = query("SELECT * FROM product");
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="setting.php">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../LOGIN/logout.php">Logout</a>
                         </li>
                     </ul>
                 </div>

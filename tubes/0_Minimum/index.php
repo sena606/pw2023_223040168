@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+require 'function.php';
+$mahasiswa = query("SELECT * FROM users");
+
+// tombol cari ditekan
+if (isset($_POST["cari"])) {
+    $mahasiswa = cari($_POST["keyword"]);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,8 +56,12 @@
                         <a class="nav-link page-scroll" href="product.php">News</a>
                     </li>
                 </ul>
+                <?php if (isset($_SESSION['login'])) : ?>
+                <a href="LOGIN/logout.php" class="btn btn-outline-light me-2">Logout</a>
+                <?php else : ?>
                 <a href="LOGIN/menulogin.php" class="btn btn-outline-light me-2">Login</a>
                 <a href="LOGIN/menuregister.php" class="btn btn-outline-light">Register</a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
@@ -62,6 +79,9 @@
                         </i>
                     </p>
                     <a href="product.php" class="btn btn-outline-dark">Click Here</a>
+                    <?php if (isset($_SESSION['login'])) : ?>
+                    <p class="mt-4 display-6">Welcome, <em><?= $_SESSION['username']; ?></em></p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

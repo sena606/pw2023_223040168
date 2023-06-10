@@ -1,4 +1,14 @@
-<?php require '../function.php';
+<?php
+
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: ../LOGIN/menulogin.php");
+    exit;
+}
+
+require '../function.php';
+
 $id = $_GET['id'];
 
 if (delete($id) > 0) {

@@ -5,6 +5,19 @@ $repeat = query("SELECT * FROM product");
 if (isset($_POST["button-search"])) {
     $repeat = cari($_POST["keyword"]);
 }
+
+// strip tags to avoid breaking any html
+// $string = strip_tags($data);
+// if (strlen($string) > 100) {
+
+//     // truncate string
+//     $stringCut = substr($string, 0, 100);
+//     $endPoint = strrpos($stringCut, ' ');
+
+//     //if the string doesn't contain any space then it will cut without word basis.
+//     $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+//     $string .= '... <a href="/this/story">Read More</a>';
+// }
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +78,7 @@ if (isset($_POST["button-search"])) {
                 <div class="col-md-6">
                     <form action="" method="post">
                         <div class="input-group my-3 text-center">
-                            <input type="search" class="form-control" placeholder="Search User" name="keyword"
+                            <input type="search" class="form-control" placeholder="Search News" name="keyword"
                                 id="keyword" autofocus autocomplete="off">
                             <button class=" btn btn-primary" type="submit" name="button-search"
                                 id="button-search">Search</button>
@@ -73,35 +86,38 @@ if (isset($_POST["button-search"])) {
                     </form>
                 </div>
             </div>
-            <div class="row ms-auto me-auto">
-                <?php if ($repeat) : ?>
-                <?php foreach ($repeat as $br) : ?>
-                <div class="col-lg-4">
-                    <div class="card my-2 mb-4" style="max-width: 18rem;">
-                        <img src=" assets/img/<?= $br['photo']; ?>" class="card-img-top" alt="baju" height="200px" />
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $br['title']; ?></h5>
-                            <p class="card-text">
-                                <?= $br['detail']; ?>
-                            </p>
-                            <a href="see_news.php?id=<?= $br['id']; ?>" class="btn btn-secondary">See More</a>
+            <div id="container">
+                <div class="row ms-auto me-auto">
+                    <?php if ($repeat) : ?>
+                    <?php foreach ($repeat as $br) : ?>
+                    <div class="col-lg-4">
+                        <div class="card my-2 mb-4" style="max-width: 18rem;">
+                            <img src=" assets/img/<?= $br['photo']; ?>" class="card-img-top" alt="baju"
+                                height="200px" />
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $br['title']; ?></h5>
+                                <p class="card-text">
+                                    <?= substr_replace($br['detail'], "<a href='#'>... Read more</a>", 50); ?>
+                                </p>
+                                <a href="see_news.php?id=<?= $br['id']; ?>" class="btn btn-secondary">See More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php endforeach; ?>
-                <?php else : ?>
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="alert alert-danger text-center" role="alert">
-                            Not Found
+                    <?php endforeach; ?>
+                    <?php else : ?>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="alert alert-danger text-center" role="alert">
+                                Not Found
+                            </div>
                         </div>
                     </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
             </div>
         </div>
-    </div>
-    <!-- Product end -->
+        <!-- Product end -->
+        <script src="js/script.js"></script>
 </body>
 
 </html>
