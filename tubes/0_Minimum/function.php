@@ -150,16 +150,35 @@ function register($data)
 }
 
 
-function gantiPassword($fsr, $username, $passwordBaru)
+function gantiPassword($data)
 {
-    $hashedPassword = password_hash($passwordBaru, PASSWORD_DEFAULT);
+    global $fsr;
 
-    // Query untuk mengubah password
-    $query = "UPDATE users SET password = '$hashedPassword' WHERE username = '$username'";
+    $id = $data['id'];
+    $passwordLama = $data['passwordLama'];
+    $passwordLama2 = $data['passwordLama2'];
+    $password = $data['password'];
+    $password2 = $data['password2'];
 
-    if (mysqli_query($fsr, $query)) {
-        return true; // Password berhasil diubah
-    } else {
-        return false; // Terjadi kesalahan
+    if (!password_verify($passwordLama2, $passwordLama)) {
+        echo "
+        <script>
+            alert('Password Lama Anda Salah!');
+        </script>
+        ";
+        return false;
     }
+
+    if ($password !== $password2) {
+        echo "
+        <script>
+            alert('Password Tidak Sesuai');
+        </script>
+        ";
+        return false;
+    }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    mysqli_query($fsr, "UPDATE users SET password = '$password' WHERE id = $id");
+    return mysqli_affected_rows($fsr);
 }

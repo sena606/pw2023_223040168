@@ -8,25 +8,21 @@ if (!isset($_SESSION["login"])) {
 }
 
 require '../function.php';
+$id = $_GET['id'];
 
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $passwordBaru = $_POST['password'];
-
-    if (gantiPassword($fsr, $username, $passwordBaru)) {
+    if (gantiPassword($_POST) > 0) {
         echo "<script>
-            alert('Edit Success');
-            document.location.href='setting.php';
+            alert('Password already change');
+            document.location.href='dashboard.php?id=" . $id . "';
         </script>";
     } else {
-        echo "<script>
-            alert('Edit Failed');
-            document.location.href='setting.php';
-        </script>";
+        echo mysqli_error($fsr);
     }
 }
 
-mysqli_close($fsr);
+
+$users = query("SELECT * FROM users WHERE id = $id")[0];
 
 ?>
 <!DOCTYPE html>
@@ -39,32 +35,40 @@ mysqli_close($fsr);
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../assets/css/ns.css">
     <style>
-    .input {
-        max-width: 190px;
-        height: 30px;
-        border: 2px solid transparent;
-        outline: none;
-        border-bottom: 2px solid #3f3f3f;
-        caret-color: #3f3f3f;
-        background-color: #212121;
-        padding: 5px;
-        transition: .5s linear;
-        font-family: monospace;
-        letter-spacing: 1px;
-    }
+        body {
+            font-family: "Inter", sans-serif;
+            height: 90vh;
+            background-image: url(../assets/img/gate.png);
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
 
-    .input:focus {
-        border: 2px solid #fa4753;
-        caret-color: #fa4753;
-        color: #fa4753;
-        box-shadow: 4px 4px 10px #070707;
-    }
+        .input {
+            max-width: 190px;
+            height: 30px;
+            border: 2px solid transparent;
+            outline: none;
+            border-bottom: 2px solid #3f3f3f;
+            caret-color: #3f3f3f;
+            background-color: #212121;
+            padding: 5px;
+            transition: .5s linear;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
 
-    .input:focus::placeholder {
-        color: #fa4753;
-    }
+        .input:focus {
+            border: 2px solid #fa4753;
+            caret-color: #fa4753;
+            color: #fa4753;
+            box-shadow: 4px 4px 10px #070707;
+        }
+
+        .input:focus::placeholder {
+            color: #fa4753;
+        }
     </style>
 </head>
 
@@ -73,8 +77,7 @@ mysqli_close($fsr);
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">Fashion Era</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -98,17 +101,24 @@ mysqli_close($fsr);
     </header>
 
     <main class="container mt-4 text-center">
-        <h1>Manage Your Account</h1>
+        <h1 style="text-shadow: 0 0 5px black;">Manage Your Account</h1>
         <form action="" method="post">
-            <div class="form-group">
+            <input class="input" name="id" type="hidden" autocomplete='off' value="<?= $users['id']; ?>">
+            <input class="input" name="passwordLama" type="hidden" autocomplete='off' value="<?= $users['password']; ?>">
+            <div class=" form-group">
                 <br>
-                <label for="username">Username:</label>
-                <input placeholder="Insert here" class="input" name="username" type="text" autocomplete='off'>
+                <label for="passwordLama2" style="text-shadow: 0 0 5px black;">Old Password:</label>
+                <input placeholder="Insert here" class="input" name="passwordLama2" type="password">
+            </div>
+            <div class=" form-group">
+                <br>
+                <label for="password" style="text-shadow: 0 0 5px black;">New Password:</label>
+                <input placeholder="Insert here" class="input" name="password" type="password">
             </div>
             <div class="form-group">
                 <br>
-                <label for="password">Password:</label>
-                <input placeholder="Insert here" class="input" name="password" type="password">
+                <label for="password2" style="text-shadow: 0 0 5px black;">Confirm New Password:</label>
+                <input placeholder="Insert here" class="input" name="password2" type="password">
             </div>
             <div class="form-group">
                 <br>

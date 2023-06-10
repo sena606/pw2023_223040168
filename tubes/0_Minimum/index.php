@@ -20,9 +20,8 @@ if (isset($_POST["cari"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,12 +35,10 @@ if (isset($_POST["cari"])) {
 
 <body>
     <!-- nav -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-tertiary"
-        style="text-shadow: 0 0 5px rgba(0, 0, 0, 1)">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-tertiary" style="text-shadow: 0 0 5px rgba(0, 0, 0, 1)">
         <div class="container">
             <a class="navbar-brand" style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.9)" href="index.php">Fashion Era</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -57,10 +54,11 @@ if (isset($_POST["cari"])) {
                     </li>
                 </ul>
                 <?php if (isset($_SESSION['login'])) : ?>
-                <a href="LOGIN/logout.php" class="btn btn-outline-light me-2">Logout</a>
+                    <a href="LOGIN/logout.php" class="btn btn-outline-light me-2">Logout</a>
+                    <a href="LOGIN/ubahuser.php?id=<?= $_SESSION['id']; ?>" class="btn btn-outline-light me-2"><i class="bi bi-gear"></i></a>
                 <?php else : ?>
-                <a href="LOGIN/menulogin.php" class="btn btn-outline-light me-2">Login</a>
-                <a href="LOGIN/menuregister.php" class="btn btn-outline-light">Register</a>
+                    <a href="LOGIN/menulogin.php" class="btn btn-outline-light me-2">Login</a>
+                    <a href="LOGIN/menuregister.php" class="btn btn-outline-light">Register</a>
                 <?php endif; ?>
             </div>
         </div>
@@ -80,7 +78,7 @@ if (isset($_POST["cari"])) {
                     </p>
                     <a href="product.php" class="btn btn-outline-dark">Click Here</a>
                     <?php if (isset($_SESSION['login'])) : ?>
-                    <p class="mt-4 display-6">Welcome, <em><?= $_SESSION['username']; ?></em></p>
+                        <p class="mt-4 display-6">Welcome, <em><?= $_SESSION['username']; ?></em></p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -91,8 +89,7 @@ if (isset($_POST["cari"])) {
     <script src="assets/js/script.js"></script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 </body>
 

@@ -27,8 +27,7 @@ if (!isset($_SESSION["login"])) {
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">Fashion Era</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -39,7 +38,7 @@ if (!isset($_SESSION["login"])) {
                             <a class="nav-link " href="add_product.php">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="setting.php">Settings</a>
+                            <a class="nav-link" href="setting.php?id=<?= $_SESSION['id']; ?>">Settings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../LOGIN/logout.php">Logout</a>

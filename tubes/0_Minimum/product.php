@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "function.php";
 $repeat = query("SELECT * FROM product");
 
@@ -31,6 +32,7 @@ if (isset($_POST["button-search"])) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +47,7 @@ if (isset($_POST["button-search"])) {
 
 <body>
     <!-- nav -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-tertiary">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="index.php">Fashion Era</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -64,8 +66,14 @@ if (isset($_POST["button-search"])) {
                         <a class="nav-link page-scroll active" href="product.php">News</a>
                     </li>
                 </ul>
-                <a href="LOGIN/menulogin.php" class="btn btn-success me-2">Login</a>
-                <a href="LOGIN/menuregister.php" class="btn btn-primary">Register</a>
+                <?php if (isset($_SESSION['login'])) : ?>
+                <a href="LOGIN/logout.php" class="btn btn-light me-2">Logout</a>
+                <a href="LOGIN/ubahuser.php?id=<?= $_SESSION['id']; ?>" class="btn btn-outline-dark me-2"><i
+                        class="bi bi-gear"></i></a>
+                <?php else : ?>
+                <a href="LOGIN/menulogin.php" class="btn btn-light me-2">Login</a>
+                <a href="LOGIN/menuregister.php" class="btn btn-light">Register</a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
@@ -97,7 +105,7 @@ if (isset($_POST["button-search"])) {
                             <div class="card-body">
                                 <h5 class="card-title"><?= $br['title']; ?></h5>
                                 <p class="card-text">
-                                    <?= substr_replace($br['detail'], "<a href='#'>... Read more</a>", 50); ?>
+                                    <?= substr_replace($br['detail'], "<a href='#'></a>", 30); ?>
                                 </p>
                                 <a href="see_news.php?id=<?= $br['id']; ?>" class="btn btn-secondary">See More</a>
                             </div>

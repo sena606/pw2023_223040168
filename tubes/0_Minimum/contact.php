@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +15,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,8 +52,14 @@
                         <a class="nav-link page-scroll active" href="contact.php">Contact</a>
                     </li>
                 </ul>
-                <a href="LOGIN/menulogin.php" class="btn btn-success me-2">Login</a>
-                <a href="LOGIN/menuregister.php" class="btn btn-primary">Register</a>
+                <?php if (isset($_SESSION['login'])) : ?>
+                <a href="LOGIN/logout.php" class="btn btn-light me-2">Logout</a>
+                <a href="LOGIN/ubahuser.php?id=<?= $_SESSION['id']; ?>" class="btn btn-outline-dark me-2"><i
+                        class="bi bi-gear"></i></a>
+                <?php else : ?>
+                <a href="LOGIN/menulogin.php" class="btn btn-light me-2">Login</a>
+                <a href="LOGIN/menuregister.php" class="btn btn-light">Register</a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>

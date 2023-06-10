@@ -18,6 +18,7 @@ if (isset($_POST["login"])) {
             $_SESSION["login"] = true;
             $_SESSION["role"] = $row['role'];
             $_SESSION['username'] = $row['username'];
+            $_SESSION['id'] = $row['id'];
 
             if ($_SESSION['role'] == 'admin') {
                 header("Location: ../admin/dashboard.php");
@@ -46,13 +47,12 @@ if (isset($_POST["login"])) {
     <link rel="stylesheet" href="../assets/css/login.css">
     <title>Fashion Era || Login</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <style>
-    body {
-        background-image: radial-gradient(circle, #c1d690, #9fae7b, #7e8866, #5f6452, #41423e);
-        backdrop-filter: blur(10px);
-    }
+        body {
+            background-image: radial-gradient(circle, #c1d690, #9fae7b, #7e8866, #5f6452, #41423e);
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
 
@@ -68,7 +68,7 @@ if (isset($_POST["login"])) {
             <form class="p-3 mt-3">
 
                 <?php if (isset($error)) : ?>
-                <p style="color: red; font-style: italic;">Wrong Username or Password</p>
+                    <p style="color: red; font-style: italic;">Wrong Username or Password</p>
                 <?php endif; ?>
 
                 <div class="form-field d-flex align-items-center">
@@ -89,8 +89,7 @@ if (isset($_POST["login"])) {
     </form>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 </body>
 

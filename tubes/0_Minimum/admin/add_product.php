@@ -9,7 +9,7 @@ if (!isset($_SESSION["login"])) {
 
 require '../function.php';
 
-$product = query("SELECT * FROM product");
+$product = query("SELECT * FROM product NATURAL JOIN category");
 
 ?>
 <!DOCTYPE html>
@@ -61,13 +61,14 @@ $product = query("SELECT * FROM product");
         <!-- Place your dashboard content here -->
         <a href="add_news.php" class="btn btn-primary">Add News</a>
 
-        <table class="table">
+        <table class="table text-center">
             <thead>
                 <tr>
                     <th scope="col">No.</th>
                     <th scope="col">Photo</th>
                     <th scope="col">Title</th>
                     <th scope="col">Detail</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Option</th>
                 </tr>
             </thead>
@@ -81,6 +82,7 @@ $product = query("SELECT * FROM product");
                     </td>
                     <td><?= $pr['title']; ?></td>
                     <td><?= $pr['detail']; ?></td>
+                    <td><?= $pr['nama_category']; ?></td>
                     <td>
                         <a href="ubah.php?id=<?= $pr['id']; ?> " class="badge bg-success text-white">ubah</a> |
                         <a href="hapus.php?id=<?= $pr['id']; ?> " class="badge bg-danger text-white">hapus</a>
