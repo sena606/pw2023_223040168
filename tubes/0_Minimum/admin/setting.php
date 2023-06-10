@@ -26,13 +26,7 @@
                             <a class="nav-link" href="dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="users.php">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="orders.php">Orders</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="add_product.php">Products</a>
+                            <a class="nav-link " href="add_product.php">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="setting.php">Settings</a>

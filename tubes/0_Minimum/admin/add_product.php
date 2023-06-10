@@ -1,3 +1,6 @@
+<?php require '../function.php';
+$product = query("SELECT * FROM product");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,13 +29,7 @@
                             <a class="nav-link" href="dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="users.php">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="orders.php">Orders</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="add_product.php">Products</a>
+                            <a class="nav-link active" href="add_product.php">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="setting.php">Settings</a>
@@ -44,9 +41,41 @@
     </header>
 
     <main class="container mt-4">
-        <h1>Add Product</h1>
+        <h1>News</h1>
         <!-- Place your dashboard content here -->
+        <a href="add_news.php" class="btn btn-primary">Add News</a>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Detail</th>
+                    <th scope="col">Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i = 1; ?>
+                <?php foreach ($product as $pr) : ?>
+                <tr>
+                    <th scope="row"><?= $i++; ?></th>
+                    <td>
+                        <img src="../assets/img/<?= $pr['photo']; ?>" width="50">
+                    </td>
+                    <td><?= $pr['title']; ?></td>
+                    <td><?= $pr['detail']; ?></td>
+                    <td>
+                        <a href="ubah.php?id=<?= $pr['id']; ?> " class="badge bg-success text-white">ubah</a> |
+                        <a href="hapus.php?id=<?= $pr['id']; ?> " class="badge bg-danger text-white">hapus</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
     </main>
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>

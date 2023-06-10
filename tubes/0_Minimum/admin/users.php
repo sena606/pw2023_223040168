@@ -16,8 +16,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">Fashion Era</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,10 +28,7 @@
                             <a class="nav-link active" href="users.php">Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="orders.php">Orders</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="add_product.php">Products</a>
+                            <a class="nav-link " href="add_product.php">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="setting.php">Settings</a>
@@ -46,8 +42,8 @@
     <main class="container mt-4">
         <h1>Users Online</h1>
         <!-- Place your dashboard content here -->
-        <h2>Izrail
-            <h2>Munkar
+        <h2>Izrail</h2>
+
     </main>
 
     <!-- Bootstrap JS -->

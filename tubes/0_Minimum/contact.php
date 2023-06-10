@@ -39,14 +39,14 @@
                         <a class="nav-link page-scroll" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="product.php">Product</a>
+                        <a class="nav-link page-scroll" href="product.php">News</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll active" href="contact.php">Contact</a>
                     </li>
                 </ul>
-                <a href="#" class="btn btn-success me-2">Login</a>
-                <a href="#" class="btn btn-primary">Register</a>
+                <a href="LOGIN/menulogin.php" class="btn btn-success me-2">Login</a>
+                <a href="LOGIN/menuregister.php" class="btn btn-primary">Register</a>
             </div>
         </div>
     </nav>
@@ -56,23 +56,27 @@
     <div id="contact">
         <div class="container" style="margin-top: 100px">
             <div class="row justify-content-center">
-                <h1 class="text-center text-uppercase">Contact</h1>
-                <div class="col-lg-6">
-                    <form action="" method="post">
-                        <label for="name">Name : <span class="text-danger">*</span></label><br />
-                        <input type="text" name="name" id="name" style="width: 100%; margin-top: 10px" required
-                            placeholder="Please input your Name!" />
-                        <label for="email" style="margin-top: 10px">Email : <span
-                                class="text-danger">*</span></label><br />
-                        <input type="text" name="email" id="email" style="width: 100%; margin-top: 10px" required
-                            placeholder="Please input your Email!" />
-                        <label for="message" style="margin-top: 10px">Message : <span
-                                class="text-danger">*</span></label>
-                        <textarea type="text" name="message" id="message"
-                            style="width: 100%; height: 200px; margin-top: 10px" required
-                            placeholder="Please input your Message!"></textarea>
-                        <button id="kirim" class="btn btn-warning">Send</button>
-                    </form>
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>About Us</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum nisi a massa
+                                viverra, sed fermentum ex posuere. Integer congue sollicitudin rutrum. Suspendisse
+                                potenti.</p>
+                            <p>Follow us on social media:</p>
+                            <div class="social-media">
+                                <ul class="list-inline m-1">
+                                    <li class="list-inline-item"><a href="https://www.facebook.com"><i
+                                                class="bi bi-facebook">Facebook</i></a></li>
+                                    <li class="list-inline-item"><a href="https://twitter.com"><i
+                                                class="bi bi-twitter">Twitter</i></a></li>
+                                    <li class="list-inline-item"><a href="https://instagram.com"><i
+                                                class="bi bi-instagram">Instagram</i></a></li>
+                                    <a href="https://api.whatsapp.com"><i class="bi bi-whatsapp">Whatsapp</i></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

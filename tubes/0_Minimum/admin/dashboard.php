@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -24,15 +24,8 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link active" href="dashboard.php">Dashboard</a>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="users.php">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="orders.php">Orders</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="add_product.php">Products</a>
+                            <a class="nav-link " href="add_product.php">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="setting.php">Settings</a>
@@ -46,7 +39,6 @@
     <main class="container mt-4">
         <h1>Hello Sena !</h1>
         <!-- Place your dashboard content here -->
-        <h3>Janganlah kamu menyakiti orang lain jika kamu tidak ingin di sakiti
     </main>
 
     <!-- Bootstrap JS -->

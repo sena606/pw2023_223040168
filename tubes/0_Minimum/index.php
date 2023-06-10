@@ -40,14 +40,11 @@
                         <a class="nav-link page-scroll" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="product.php">Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="contact.php">Contact</a>
+                        <a class="nav-link page-scroll" href="product.php">News</a>
                     </li>
                 </ul>
-                <a href="#" class="btn btn-outline-light me-2">Login</a>
-                <a href="#" class="btn btn-outline-light">Register</a>
+                <a href="LOGIN/menulogin.php" class="btn btn-outline-light me-2">Login</a>
+                <a href="LOGIN/menuregister.php" class="btn btn-outline-light">Register</a>
             </div>
         </div>
     </nav>
@@ -61,12 +58,10 @@
                     <h1>Find<br />Your Style<br />In Fashion Era</h1>
                     <p class="mt-4">
                         <i>
-                            "Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Laborum earum officia inventore ut nesciunt necessitatibus
-                            impedit excepturi"
+                            Style is a way to say who you are without having to speak.
                         </i>
                     </p>
-                    <a href="#product" class="btn btn-outline-dark">Click Here</a>
+                    <a href="product.php" class="btn btn-outline-dark">Click Here</a>
                 </div>
             </div>
         </div>

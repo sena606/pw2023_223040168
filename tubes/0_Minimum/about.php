@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.6.1/bootstrap-icons.min.css">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,44 +37,62 @@
                         <a class="nav-link page-scroll" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="about.php">About</a>
+                        <a class="nav-link page-scroll" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="product.php">Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="contact.php">Contact</a>
+                        <a class="nav-link page-scroll" href="product.php">News</a>
                     </li>
                 </ul>
-                <a href="#" class="btn btn-success me-2">Login</a>
-                <a href="#" class="btn btn-primary">Register</a>
+                <a href="LOGIN/menulogin.php" class="btn btn-success me-2">Login</a>
+                <a href="LOGIN/menuregister.php" class="btn btn-primary">Register</a>
             </div>
         </div>
     </nav>
     <!-- nav end -->
 
-    <!-- about -->
-    <div id="about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img src="assets/img/fashion-sale-offer.svg" alt="img" width="100%" />
-                </div>
-                <div class="col-lg-6">
-                    <h1 class="text-center text-uppercase">About</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At quod
-                        necessitatibus porro odit. Modi cum hic libero repudiandae
-                        voluptatem tempora temporibus distinctio quisquam velit aspernatur
-                        harum ut quis facilis voluptas, rerum eligendi, laboriosam eius!
-                        Quo odit sint harum neque dicta deleniti molestias, cumque aut!
-                        Fuga illum distinctio nobis ducimus quisquam.
-                    </p>
+    <!-- contact -->
+    <div id="contact">
+        <div class="container" style="margin-top: 100px">
+            <div class="row justify-content-center">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>About Us</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum nisi a massa
+                                viverra, sed fermentum ex posuere. Integer congue sollicitudin rutrum. Suspendisse
+                                potenti.</p>
+                            <p>Follow us on social media:</p>
+                            <div class="social-media">
+                                <ul class="" style="list-style: none; margin-left: -50px;">
+                                    <li class="m-2"><img
+                                            src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg"
+                                            width="50px" alt="Facebook Icon" class="me-2"><a
+                                            href="http://facebook.com">Facebook</a>
+                                    </li>
+                                    <li class="m-2"><img
+                                            src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg"
+                                            width="50px" alt="Instagram Icon" class="me-2"><a
+                                            href="http://instagram.com">Instagram</a>
+                                    <li class="m-2"><img
+                                            src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg"
+                                            width="50px" alt="twitter Icon" class="me-2"><a
+                                            href=" http://twitter.com">Twitter</a>
+                                    </li>
+                                    <li class="m-2"><img
+                                            src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/whatsapp.svg"
+                                            width="50px" alt="Whatsapp Icon" class="me-2"><a
+                                            href=" http://whatsapp.com">Whatsapp</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- about end -->
+    <!-- contact end -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

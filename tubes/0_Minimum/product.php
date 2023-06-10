@@ -1,7 +1,12 @@
-<?php 
+<?php
 require "function.php";
-$repeat = query("SELECT * FROM product");  
+$repeat = query("SELECT * FROM product");
+
+if (isset($_POST["button-search"])) {
+    $repeat = cari($_POST["keyword"]);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +27,12 @@ $repeat = query("SELECT * FROM product");
     <!-- custom css -->
     <link rel="stylesheet" href="assets/css/product.css" />
 
-    <title>Fashion Era || Product</title>
+    <title>Fashion Era || News</title>
 </head>
 
 <body>
     <!-- nav -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-tertiary">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-tertiary">
         <div class="container">
             <a class="navbar-brand" href="index.php">Fashion Era</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -35,7 +40,7 @@ $repeat = query("SELECT * FROM product");
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto me-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link page-scroll" aria-current="page" href="index.php">Home</a>
                     </li>
@@ -43,23 +48,34 @@ $repeat = query("SELECT * FROM product");
                         <a class="nav-link page-scroll" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll active" href="product.php">Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="contact.php">Contact</a>
+                        <a class="nav-link page-scroll active" href="product.php">News</a>
                     </li>
                 </ul>
-                <a href="#" class="btn btn-success me-2">Login</a>
-                <a href="#" class="btn btn-primary">Register</a>
+                <a href="LOGIN/menulogin.php" class="btn btn-success me-2">Login</a>
+                <a href="LOGIN/menuregister.php" class="btn btn-primary">Register</a>
             </div>
         </div>
     </nav>
     <!-- nav end -->
+
     <!-- Product -->
-    <div id="product">
+    <div id="product" style="margin-top: 0;">
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form action="" method="post">
+                        <div class="input-group my-3 text-center">
+                            <input type="search" class="form-control" placeholder="Search User" name="keyword"
+                                id="keyword" autofocus autocomplete="off">
+                            <button class=" btn btn-primary" type="submit" name="button-search"
+                                id="button-search">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="row ms-auto me-auto">
-                <?php foreach ($repeat as $br) :?>
+                <?php if ($repeat) : ?>
+                <?php foreach ($repeat as $br) : ?>
                 <div class="col-lg-4">
                     <div class="card my-2 mb-4" style="max-width: 18rem;">
                         <img src=" assets/img/<?= $br['photo']; ?>" class="card-img-top" alt="baju" height="200px" />
@@ -68,11 +84,20 @@ $repeat = query("SELECT * FROM product");
                             <p class="card-text">
                                 <?= $br['detail']; ?>
                             </p>
-                            <a href="#" class="btn btn-secondary">See More</a>
+                            <a href="see_news.php?id=<?= $br['id']; ?>" class="btn btn-secondary">See More</a>
                         </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
+                <?php else : ?>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="alert alert-danger text-center" role="alert">
+                            Not Found
+                        </div>
+                    </div>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
