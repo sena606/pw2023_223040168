@@ -39,39 +39,39 @@ $users = query("SELECT * FROM users WHERE id = $id")[0];
     <title>Setting || Users</title>
     <link rel="stylesheet" href="../assets/css/ns.css">
     <style>
-        body {
-            font-family: "Inter", sans-serif;
-            height: 90vh;
-            background-image: url(../assets/img/gate.png);
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
+    body {
+        font-family: "Inter", sans-serif;
+        height: 90vh;
+        background-image: url(../assets/img/gate.png);
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
 
-        .input {
-            max-width: 190px;
-            height: 30px;
-            border: 2px solid transparent;
-            outline: none;
-            border-bottom: 2px solid #3f3f3f;
-            caret-color: #3f3f3f;
-            background-color: #212121;
-            padding: 5px;
-            transition: .5s linear;
-            font-family: monospace;
-            letter-spacing: 1px;
-        }
+    .input {
+        max-width: 190px;
+        height: 30px;
+        border: 2px solid transparent;
+        outline: none;
+        border-bottom: 2px solid #3f3f3f;
+        caret-color: #3f3f3f;
+        background-color: #212121;
+        padding: 5px;
+        transition: .5s linear;
+        font-family: monospace;
+        letter-spacing: 1px;
+    }
 
-        .input:focus {
-            border: 2px solid #fa4753;
-            caret-color: #fa4753;
-            color: #fa4753;
-            box-shadow: 4px 4px 10px #070707;
-        }
+    .input:focus {
+        border: 2px solid #fa4753;
+        caret-color: #fa4753;
+        color: #fa4753;
+        box-shadow: 4px 4px 10px #070707;
+    }
 
-        .input:focus::placeholder {
-            color: #fa4753;
-        }
+    .input:focus::placeholder {
+        color: #fa4753;
+    }
     </style>
 </head>
 
@@ -80,20 +80,21 @@ $users = query("SELECT * FROM users WHERE id = $id")[0];
         <h1 style="text-shadow: 0 0 5px black;">Manage Your Account</h1>
         <form action="" method="post">
             <input class="input" name="id" type="hidden" autocomplete='off' value="<?= $users['id']; ?>">
-            <input class="input" name="passwordLama" type="hidden" autocomplete='off' value="<?= $users['password']; ?>">
+            <input class="input" name="passwordLama" type="hidden" autocomplete='off'
+                value="<?= $users['password']; ?>">
             <div class=" form-group">
                 <br>
-                <label for="passwordLama2" style="text-shadow: 0 0 5px black;">Password Lama:</label>
+                <label for="passwordLama2" style="text-shadow: 0 0 5px black;">Old Password:</label>
                 <input placeholder="Insert here" class="input" name="passwordLama2" type="password">
             </div>
             <div class=" form-group">
                 <br>
-                <label for="password" style="text-shadow: 0 0 5px black;">Password Baru:</label>
+                <label for="password" style="text-shadow: 0 0 5px black;">New Password:</label>
                 <input placeholder="Insert here" class="input" name="password" type="password">
             </div>
             <div class="form-group">
                 <br>
-                <label for="password2" style="text-shadow: 0 0 5px black;">Konfirmasi Password Baru:</label>
+                <label for="password2" style="text-shadow: 0 0 5px black;">Confirm New Password:</label>
                 <input placeholder="Insert here" class="input" name="password2" type="password">
             </div>
             <div class="form-group">

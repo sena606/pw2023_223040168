@@ -32,8 +32,7 @@ $product = query("SELECT * FROM product NATURAL JOIN category");
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">Fashion Era</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -45,7 +44,7 @@ $product = query("SELECT * FROM product NATURAL JOIN category");
                             <a class="nav-link active" href="add_product.php">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="setting.php">Settings</a>
+                            <a class="nav-link" href="setting.php?id=<?= $_SESSION['id']; ?>">Settings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../LOGIN/logout.php">Logout</a>
@@ -75,19 +74,19 @@ $product = query("SELECT * FROM product NATURAL JOIN category");
             <tbody>
                 <?php $i = 1; ?>
                 <?php foreach ($product as $pr) : ?>
-                <tr>
-                    <th scope="row"><?= $i++; ?></th>
-                    <td>
-                        <img src="../assets/img/<?= $pr['photo']; ?>" width="50">
-                    </td>
-                    <td><?= $pr['title']; ?></td>
-                    <td><?= $pr['detail']; ?></td>
-                    <td><?= $pr['nama_category']; ?></td>
-                    <td>
-                        <a href="ubah.php?id=<?= $pr['id']; ?> " class="badge bg-success text-white">ubah</a> |
-                        <a href="hapus.php?id=<?= $pr['id']; ?> " class="badge bg-danger text-white">hapus</a>
-                    </td>
-                </tr>
+                    <tr>
+                        <th scope="row"><?= $i++; ?></th>
+                        <td>
+                            <img src="../assets/img/<?= $pr['photo']; ?>" width="50">
+                        </td>
+                        <td><?= $pr['title']; ?></td>
+                        <td><?= $pr['detail']; ?></td>
+                        <td><?= $pr['nama_category']; ?></td>
+                        <td>
+                            <a href="ubah.php?id=<?= $pr['id']; ?> " class="badge bg-success text-white">ubah</a> |
+                            <a href="hapus.php?id=<?= $pr['id']; ?> " class="badge bg-danger text-white">hapus</a>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

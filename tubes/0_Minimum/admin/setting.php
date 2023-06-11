@@ -89,7 +89,7 @@ $users = query("SELECT * FROM users WHERE id = $id")[0];
                             <a class="nav-link " href="add_product.php">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="setting.php">Settings</a>
+                            <a class="nav-link active" href="setting.php?id=<?= $_SESSION['id']; ?>">Settings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../LOGIN/logout.php">Logout</a>
@@ -103,7 +103,7 @@ $users = query("SELECT * FROM users WHERE id = $id")[0];
     <main class="container mt-4 text-center">
         <h1 style="text-shadow: 0 0 5px black;">Manage Your Account</h1>
         <form action="" method="post">
-            <input class="input" name="id" type="hidden" autocomplete='off' value="<?= $users['id']; ?>">
+            <input class="input" name="id" type="hidden" autocomplete='off' value="<?= $id; ?>">
             <input class="input" name="passwordLama" type="hidden" autocomplete='off' value="<?= $users['password']; ?>">
             <div class=" form-group">
                 <br>
